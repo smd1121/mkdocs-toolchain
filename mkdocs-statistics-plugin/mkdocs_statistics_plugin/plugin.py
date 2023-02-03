@@ -14,9 +14,7 @@ from mkdocs.utils.meta import get_data
 from typing import Any, Dict, Optional, Tuple
 
 PLUGIN_DIR = os.path.dirname(os.path.realpath(__file__))
-TEMPLATE_DIR = os.path.join(PLUGIN_DIR, 'page_statistics.html')
-
-print(os.listdir(PLUGIN_DIR))
+TEMPLATE_DIR = os.path.join(PLUGIN_DIR, 'templates/page_statistics.html')
 
 with open(TEMPLATE_DIR, 'r', encoding='utf-8') as file:
     TEMPLATE = file.read()
