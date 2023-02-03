@@ -16,7 +16,7 @@ from typing import Any, Dict, Optional, Tuple
 PLUGIN_DIR = os.path.dirname(os.path.realpath(__file__))
 TEMPLATE_DIR = os.path.join(PLUGIN_DIR, 'templates/page_statistics.html')
 
-with open(TEMPLATE_DIR, 'r') as file:
+with open(TEMPLATE_DIR, 'r', encoding='utf-8') as file:
     TEMPLATE = file.read()
 
 log = logging.getLogger('mkdocs.mkdocs_statistics_plugin')
@@ -84,7 +84,7 @@ class StatisticsPlugin(BasePlugin):
                 flags=re.IGNORECASE,
             )
 
-        if page.meta.get("comment") and (not page.meta.get("nostatistics")):
+        if not page.meta.get("nostatistics"):
 
             code_lines = 0
             chinese, english, codes = self._split_markdown(markdown)
